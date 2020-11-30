@@ -1,24 +1,31 @@
-const express = require('express'),
-  http = require('http');
+const express = require('express');
 
+// Middleware dependencies
+const http = require('http');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
+// Defaults confiugraiton of the server
 const hostname = 'localhost';
 const port = 3000;
 
 const app = express();
 
-const morgan = require('morgan');
-
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+// Definitions of the routes
 const dishRouter = require('./routes/dishRouter');
+const promoRouter = require('./routes/promoRouter');
+const leaderRouter = require('./routes/leaderRouter');
 app.use('/dishes', dishRouter);
+app.use('/promotions', promoRouter);
+app.use('/leaders', leaderRouter);
 
-app.use(bodyParser.json());
-
+// Provide a simple UI
 app.use(express.static(__dirname + '/public'));
 
+// Default behavior of the server, for example if the URL requested is unknown.
 app.use((req, res, next) => {
   console.log(req.headers);
   res.statusCode = 200;
@@ -27,6 +34,7 @@ app.use((req, res, next) => {
 
 });
 
+// We start the server
 const server = http.createServer(app);
 
 server.listen(port, hostname, () => {

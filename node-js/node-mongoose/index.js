@@ -9,17 +9,35 @@ connect.then((db) => {
 
     console.log('Connected correctly to server');
 
-    var newDish = Dishes.create({
-        name: 'Uthapizza',
-        description: 'Test'
+    // we have a DeprecationWarning, but keep it like the teacher asks.
+
+    Dishes.create({
+        name: 'Uthappizza',
+        description: 'test'
     })
         .then((dish) => {
             console.log(dish);
 
-            return Dishes.find({}).exec();
+            return Dishes.findByIdAndUpdate(dish._id, {
+                $set: { description: 'Updated test' }
+            }, {
+                new: true
+            })
+                .exec();
         })
-        .then((dishes) => {
-            console.log(dishes);
+        .then((dish) => {
+            console.log(dish);
+
+            dish.comments.push({
+                rating: 5,
+                comment: 'I\'m getting a sinking feeling!',
+                author: 'Leonardo di Carpaccio'
+            });
+
+            return dish.save();
+        })
+        .then((dish) => {
+            console.log(dish);
 
             return Dishes.deleteMany({});
         })

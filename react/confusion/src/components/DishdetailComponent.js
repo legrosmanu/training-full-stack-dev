@@ -133,15 +133,19 @@ const RenderComments = ({ comments }) => {
     });
     if (comments != null && comments.length > 0) {
         return (
-            <ul className="list-unstyled">
-                <h4>Comments</h4>
-                {commentsRendered}
+            <React.Fragment>
+                <ul className="list-unstyled">
+                    <h4>Comments</h4>
+                    {commentsRendered}
+                </ul>
                 <CommentForm />
-            </ul>
+            </React.Fragment>
         );
     } else {
         return (
-            <div></div>
+            <React.Fragment>
+                <CommentForm />
+            </React.Fragment>
         );
     }
 };

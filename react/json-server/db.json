@@ -201,6 +201,38 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
+    },
+    {
+      "dishId": 0,
+      "rating": "4",
+      "author": "Manu",
+      "comment": "This is good.\nNice dish.",
+      "date": "2020-12-31T08:42:53.635Z",
+      "id": 20
+    },
+    {
+      "dishId": 0,
+      "rating": "5",
+      "author": "Emmanuel",
+      "comment": "New test",
+      "date": "2020-12-31T08:43:16.564Z",
+      "id": 21
+    },
+    {
+      "dishId": 1,
+      "rating": "1",
+      "author": "dsf",
+      "comment": "sdf",
+      "date": "2020-12-31T14:34:28.262Z",
+      "id": 22
+    },
+    {
+      "dishId": 1,
+      "rating": "3",
+      "author": "sdfqsdfs",
+      "comment": "wsfdsfsd",
+      "date": "2020-12-31T16:07:04.984Z",
+      "id": 23
     }
   ],
   "promotions": [
@@ -263,6 +295,98 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "telnum": "",
+      "email": "",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "",
+      "id": 2
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "111111111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "scq<cqx",
+      "id": 3
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "111111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "sdfsdqfdsq",
+      "id": 4
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "1111111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "sdfsdfdsf",
+      "id": 5
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "111111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "sdfsdf",
+      "id": 6
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "111111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "sfsdfs",
+      "id": 7
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "1111111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "sdfqdfx",
+      "id": 8
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "11111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Tel.",
+      "message": "sqdfsdfsd",
+      "date": "2020-12-31T16:02:59.230Z",
+      "id": 9
+    },
+    {
+      "firstname": "Emmanuel",
+      "lastname": "Legros",
+      "telnum": "111111",
+      "email": "emmanuel.legros@gmail.com",
+      "agree": false,
+      "contactType": "Email",
+      "message": "qswqs<wdx",
+      "date": "2020-12-31T16:07:20.756Z",
+      "id": 10
     }
   ]
 }

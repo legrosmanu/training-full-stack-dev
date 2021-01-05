@@ -67,6 +67,12 @@ public class GameController {
 
     }
 
+    public void restartGame() {
+        this.rebuildDeck();
+        this.cleanPlayers();
+        this.gameState = GameState.AddingPlayers;
+    }
+
     public void flipCards(){
         if (this.gameState == GameState.CardsDealt) {
             int playerIndex = 1;
@@ -96,4 +102,9 @@ public class GameController {
         }
         this.gameState = GameState.AddingPlayers;
     }
+
+    private void cleanPlayers(){
+        this.players = new ArrayList<>();
+    }
+
 }

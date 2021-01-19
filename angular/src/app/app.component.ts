@@ -8,17 +8,29 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   isAuth: boolean;
+  devices: { name: string, status: string }[];
 
   constructor() {
     this.isAuth = false;
+    this.devices = [];
     setTimeout(() => {
       this.isAuth = true;
     }, 4000);
+    this.addDevice("Washing machine", "On");
+    this.addDevice("Computer", "Off");
+    this.addDevice("Coffee machine", "On");
   }
 
   onTurnOn(): void {
     console.log("Everyting is turned on!");
-    
+
+  }
+
+  addDevice(name: string, status: string): void {
+    this.devices.push({
+      name: name,
+      status: status
+    });
   }
 
 }

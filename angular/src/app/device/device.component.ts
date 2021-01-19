@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceComponent implements OnInit {
 
-  constructor() { }
+  name: string;
+  status: string;
+
+  constructor() {
+    this.name = "default name";
+    this.status = "defaut status";
+  }
 
   ngOnInit(): void {
+  }
+
+  getStatus(): string {
+    return this.status;
   }
 
 }

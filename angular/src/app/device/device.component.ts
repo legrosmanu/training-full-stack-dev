@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-device',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceComponent implements OnInit {
 
-  name: string;
-  status: string;
+  @Input() name: string;
+  @Input() status: string;
 
   constructor() {
     this.name = "default name";

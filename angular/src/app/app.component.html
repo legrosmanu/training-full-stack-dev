@@ -3,9 +3,9 @@
     <div class="col-12">
       <h1>Devices</h1>
       <ul class="list-group">
-        <app-device></app-device>
-        <app-device></app-device>
-        <app-device></app-device>
+        <app-device name="Washing machine" status="On"></app-device>
+        <app-device name="Computer" status="Off"></app-device>
+        <app-device name="Coffee machine" status="On"></app-device>
       </ul>
       <button class="btn btn-primary" type="button" [disabled]="!isAuth" (click)="onTurnOn()">
         Turn on everything!

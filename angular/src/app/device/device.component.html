@@ -1,4 +1,8 @@
-<li class="list-group-item">
-    {{name}} - {{getStatus()}}
+<li
+    [ngClass]="{'list-group-item': true, 
+    'list-group-item-success': status === 'On', 
+    'list-group-item-danger': status === 'Off'}">
+    <div style="width:20px;height:20px;background-color:red;" *ngIf="status === 'Off'"></div>
+    <p [ngStyle]="{color: getColor()}">{{name}} - {{getStatus()}}</p>
     <input class="form-control" type="text" [(ngModel)]="name" />
 </li>

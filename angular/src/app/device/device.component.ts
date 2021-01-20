@@ -22,4 +22,12 @@ export class DeviceComponent implements OnInit {
     return this.status;
   }
 
+  getColor(): string {
+    let color = 'red';
+    if(this.status === 'On') {
+      color = 'green';
+    }
+    return color;
+}
+
 }

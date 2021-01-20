@@ -19,6 +19,7 @@ export class AppComponent {
     this.addDevice("Washing machine", "On");
     this.addDevice("Computer", "Off");
     this.addDevice("Coffee machine", "On");
+    this.addDevice("TV", "Off");
   }
 
   onTurnOn(): void {

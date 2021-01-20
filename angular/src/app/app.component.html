@@ -3,9 +3,7 @@
     <div class="col-12">
       <h1>Devices</h1>
       <ul class="list-group">
-        <app-device [name]="devices[0].name" [status]="devices[0].status"></app-device>
-        <app-device [name]="devices[1].name" [status]="devices[1].status"></app-device>
-        <app-device [name]="devices[2].name" [status]="devices[2].status"></app-device>
+        <app-device *ngFor="let device of devices" [name]="device.name" [status]="device.status"></app-device>
       </ul>
       <button class="btn btn-primary" type="button" [disabled]="!isAuth" (click)="onTurnOn()">
         Turn on everything!

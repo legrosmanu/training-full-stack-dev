@@ -1,3 +1,4 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,6 +10,7 @@ export class AppComponent {
 
   isAuth: boolean;
   devices: { name: string, status: string }[];
+  lastUpdate: Promise<Date>;
 
   constructor() {
     this.isAuth = false;
@@ -20,6 +22,13 @@ export class AppComponent {
     this.addDevice("Computer", "Off");
     this.addDevice("Coffee machine", "On");
     this.addDevice("TV", "Off");
+    // just for the async pipe in the template: 
+    this.lastUpdate = new Promise((resolve, reject) => {
+      const date = new Date();
+      setTimeout(() => {
+        resolve(date);
+      }, 2000);
+    });
   }
 
   onTurnOn(): void {

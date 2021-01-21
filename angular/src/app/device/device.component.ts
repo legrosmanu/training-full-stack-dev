@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DeviceService } from '../device.service';
 
 @Component({
   selector: 'app-device',
@@ -9,10 +10,12 @@ export class DeviceComponent implements OnInit {
 
   @Input() name: string;
   @Input() status: string;
+  @Input() id: number;
 
-  constructor() {
+  constructor(private deviceService: DeviceService) {
     this.name = "default name";
     this.status = "defaut status";
+    this.id = 0;
   }
 
   ngOnInit(): void {
@@ -24,10 +27,14 @@ export class DeviceComponent implements OnInit {
 
   getColor(): string {
     let color = 'red';
-    if(this.status === 'On') {
+    if (this.status === 'On') {
       color = 'green';
     }
     return color;
-}
+  }
+
+  onSwitch(): void {
+    this.deviceService.switchOne(this.id);
+  }
 
 }

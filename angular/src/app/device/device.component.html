@@ -1,8 +1,8 @@
-<li
-    [ngClass]="{'list-group-item': true, 
+<li [ngClass]="{'list-group-item': true, 
     'list-group-item-success': status === 'On', 
     'list-group-item-danger': status === 'Off'}">
-    <div style="width:20px;height:20px;background-color:red;" *ngIf="status === 'Off'"></div>
     <p [ngStyle]="{color: getColor()}">{{name}} - {{getStatus()}}</p>
     <input class="form-control" type="text" [(ngModel)]="name" />
+    <button class="btn btn-sm btn-success" *ngIf="status === 'Off'" (click)="onSwitch()">Turn on</button>
+    <button class="btn btn-sm btn-danger" *ngIf="status === 'On'" (click)="onSwitch()">Turn off</button>
 </li>

@@ -1,7 +1,7 @@
 <li [ngClass]="{
     'list-group-item': true, 
     'list-group-item-success': post.loveIts > 0, 
-    'list-group-item-danger': post.loveIts < 0}">
+    'list-group-item-danger': post.loveIts < 0}" *ngIf="post">
     <div class="row">
         <div class="col-8">
             <h4>{{post.title}}</h4>

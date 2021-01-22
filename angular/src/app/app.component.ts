@@ -1,6 +1,6 @@
 import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { DeviceService } from './device.service';
+import { DeviceService } from './services/device.service';
 
 @Component({
   selector: 'app-root',

@@ -2,6 +2,7 @@
     'list-group-item-success': status === 'On', 
     'list-group-item-danger': status === 'Off'}">
     <p [ngStyle]="{color: getColor()}">{{name}} - {{getStatus()}}</p>
+    <a [routerLink]="[id]">Details</a>
     <input class="form-control" type="text" [(ngModel)]="name" />
     <button class="btn btn-sm btn-success" *ngIf="status === 'Off'" (click)="onSwitch()">Turn on</button>
     <button class="btn btn-sm btn-danger" *ngIf="status === 'On'" (click)="onSwitch()">Turn off</button>

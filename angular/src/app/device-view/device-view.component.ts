@@ -10,7 +10,7 @@ export class DeviceViewComponent implements OnInit {
 
   isAuth: boolean;
   lastUpdate: Promise<Date>;
-  devices: { name: string, status: string }[];
+  devices: { id: number, name: string, status: string }[];
 
   constructor(private deviceService: DeviceService) {
     this.isAuth = false;

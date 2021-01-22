@@ -5,22 +5,44 @@ import { Injectable } from '@angular/core';
 })
 export class DeviceService {
 
-  devices: { name: string, status: string }[];
+  devices: { id: number, name: string, status: string }[];
 
   constructor() {
     this.devices = [];
-    this.addDevice("Washing machine", "On");
-    this.addDevice("Computer", "Off");
-    this.addDevice("Coffee machine", "On");
-    this.addDevice("TV", "Off");
+    this.addDevice(1, "Washing machine", "On");
+    this.addDevice(2, "Computer", "Off");
+    this.addDevice(3, "Coffee machine", "On");
+    this.addDevice(4, "TV", "Off");
   }
 
-
-  addDevice(name: string, status: string): void {
+  addDevice(id: number, name: string, status: string): void {
     this.devices.push({
+      id: id,
       name: name,
       status: status
     });
+  }
+
+  getDevicelById(id: number) {
+    const deviceFound = this.devices.find(
+      (s) => {
+        return s.id === id;
+      }
+    );
+    if (!deviceFound) {
+      return this.createDefaultDevice();
+    } else {
+      return deviceFound;
+    }
+  }
+
+  // just for the training and avoid to manage errors
+  createDefaultDevice() {
+    return {
+      id: -1,
+      name: "device not found",
+      status: "Off"
+    };
   }
 
   switchOnAll(): void {
@@ -36,10 +58,13 @@ export class DeviceService {
   }
 
   switchOne(id: number): void {
-    if (this.devices[id].status === "On") {
-      this.devices[id].status = "Off";
-    } else {
-      this.devices[id].status = "On";
+    const device = this.getDevicelById(id);
+    if (device.id != -1) {
+      if (device .status === "On") {
+        device.status = "Off";
+      } else {
+        device.status = "On";
+      }
     }
   }
 

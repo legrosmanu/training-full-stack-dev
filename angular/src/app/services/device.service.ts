@@ -51,7 +51,6 @@ export class DeviceService {
       name: "device not found",
       status: "Off"
     };
-    this.emitDeviceSubject();
   }
 
   switchOnAll(): void {

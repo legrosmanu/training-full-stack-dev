@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DeviceService } from '../services/device.service';
 
 @Component({
   selector: 'app-new-device',
@@ -8,14 +10,20 @@ import { NgForm } from '@angular/forms';
 })
 export class NewDeviceComponent implements OnInit {
 
-  constructor() { }
+  defaultStatus: string;
+
+  constructor(private deviceService: DeviceService, private router: Router) {
+    this.defaultStatus = "Off";
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit(form: NgForm): void {
-    console.log(form.value);
-    
+    const name = form.value['name'];
+    const status = form.value['status'];
+    this.deviceService.addDevice(-1, name, status);
+    this.router.navigate(['devices']);
   }
 
 }

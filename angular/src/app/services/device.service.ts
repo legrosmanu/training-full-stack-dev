@@ -23,6 +23,9 @@ export class DeviceService {
   }
 
   addDevice(id: number, name: string, status: string): void {
+    if (id == null || id < 0) {
+      id = this.devices[this.devices.length-1].id + 1;
+    }
     this.devices.push({
       id: id,
       name: name,

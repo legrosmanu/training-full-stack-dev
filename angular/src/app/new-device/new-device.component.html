@@ -5,18 +5,18 @@
                 <label for="name">
                     Device name
                 </label>
-                <input type="text" id="name" class="form-control" name="name" ngModel>
+                <input type="text" id="name" class="form-control" name="name" ngModel required>
             </div>
             <div class="form-group">
                 <label for="status">
                     Device status
                 </label>
-                <select id="status" class="form-control" name="status" ngModel>
-                    <option value="on">On</option>
-                    <option value="off">Off</option>
+                <select id="status" class="form-control" name="status" [ngModel]="defaultStatus">
+                    <option value="On">On</option>
+                    <option value="Off">Off</option>
                 </select>
             </div>
-            <button class="btn btn-primary" type="submit">Add</button>
+            <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Add</button>
         </form>
     </div>
 </div>

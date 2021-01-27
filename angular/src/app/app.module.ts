@@ -11,10 +11,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { SingleDeviceComponent } from './single-device/single-device.component';
 import { FourofourComponent } from './fourofour/fourofour.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { NewDeviceComponent } from './new-device/new-device.component';
 
 const appRoutes: Routes = [
   { path: 'devices', canActivate: [AuthGuard], component: DeviceViewComponent },
   { path: 'devices/:id', canActivate: [AuthGuard], component: SingleDeviceComponent},
+  { path: 'new-device', canActivate: [AuthGuard], component: NewDeviceComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: DeviceViewComponent },
   { path: 'not-found', component: FourofourComponent },
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     AuthComponent,
     DeviceViewComponent,
     SingleDeviceComponent,
-    FourofourComponent
+    FourofourComponent,
+    NewDeviceComponent
   ],
   imports: [
     BrowserModule,

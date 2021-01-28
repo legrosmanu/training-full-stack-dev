@@ -14,12 +14,14 @@ import { AuthGuard } from './services/auth-guard.service';
 import { NewDeviceComponent } from './new-device/new-device.component';
 import { UserService } from './services/user.service';
 import { UserListComponent } from './user-list/user-list.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 const appRoutes: Routes = [
   { path: 'devices', canActivate: [AuthGuard], component: DeviceViewComponent },
   { path: 'devices/:id', canActivate: [AuthGuard], component: SingleDeviceComponent },
   { path: 'new-device', canActivate: [AuthGuard], component: NewDeviceComponent },
   { path: 'users', component: UserListComponent },
+  { path: 'new-user', component: NewUserComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: DeviceViewComponent },
   { path: 'not-found', component: FourofourComponent },
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     SingleDeviceComponent,
     FourofourComponent,
     NewDeviceComponent,
-    UserListComponent
+    UserListComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,

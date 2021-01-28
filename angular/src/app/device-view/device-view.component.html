@@ -1,9 +1,7 @@
 <h1>Devices</h1>
 <p>Last update: {{ lastUpdate | async | date: 'EEEE d MMMM y' | uppercase }}</p>
 <ul class="list-group">
-    <app-device *ngFor="let device of devices; let i = index" 
-        [name]="device.name" 
-        [status]="device.status" 
+    <app-device *ngFor="let device of devices; let i = index" [name]="device.name" [status]="device.status"
         [id]="device.id">
     </app-device>
 </ul>
@@ -13,3 +11,4 @@
 <button class="btn btn-danger ml-1" [disabled]="!isAuth" (click)="onTurnOff()">
     Turn off everything!
 </button>
+<button class="btn btn-primary" (click)="onSave()">Save on Firebase</button>

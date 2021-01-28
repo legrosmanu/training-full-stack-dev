@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -9,13 +10,9 @@ export class DeviceService {
   private devices: { id: number, name: string, status: string }[];
   devicesSubject: Subject<any[]>; // any because we didn't do a type for a Device
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.devices = [];
     this.devicesSubject = new Subject<any[]>();
-    this.addDevice(1, "Washing machine", "On");
-    this.addDevice(2, "Computer", "Off");
-    this.addDevice(3, "Coffee machine", "On");
-    this.addDevice(4, "TV", "Off");
   }
 
   emitDeviceSubject(): void {
@@ -24,7 +21,7 @@ export class DeviceService {
 
   addDevice(id: number, name: string, status: string): void {
     if (id == null || id < 0) {
-      id = this.devices[this.devices.length-1].id + 1;
+      id = this.devices[this.devices.length - 1].id + 1;
     }
     this.devices.push({
       id: id,
@@ -73,13 +70,39 @@ export class DeviceService {
   switchOne(id: number): void {
     const device = this.getDevicelById(id);
     if (device.id != -1) {
-      if (device .status === "On") {
+      if (device.status === "On") {
         device.status = "Off";
       } else {
         device.status = "On";
       }
     }
     this.emitDeviceSubject();
+  }
+
+  saveDevices(): void {
+    this.httpClient
+      .put('https://fakeUrl/devices.json', this.devices)
+      .subscribe(
+        () => {
+          console.log('saveDevices is ok !');
+        },
+        (error) => {
+          console.log('Error on saveDevices ! : ' + error);
+        }
+      );
+  }
+
+  getDevices(): void {
+    this.httpClient.get<any[]>('https://fakeUrl/devices.json')
+      .subscribe(
+        (response) => {
+          this.devices = response;
+          this.emitDeviceSubject();
+        },
+        (error) => {
+          console.log('Error ! : ' + error);
+        }
+      );
   }
 
 }

@@ -30,6 +30,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.deviceService.getDevices();
     this.deviceSubscription = this.deviceService.devicesSubject.subscribe((devices: any[]) => {
       this.devices = devices;
     });
@@ -50,6 +51,10 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.deviceSubscription?.unsubscribe();
+  }
+
+  onSave() {
+    this.deviceService.saveDevices();
   }
 
 }

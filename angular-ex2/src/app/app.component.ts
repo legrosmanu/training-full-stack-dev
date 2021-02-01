@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import * as configEx2 from './config.json';
 
 @Component({

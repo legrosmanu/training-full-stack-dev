@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a routerLink="books">Books</a>
-    <a routerLink="auth/signup">Create an account</a>
-    <a routerLink="auth/signin">Connection</a>
+    <a routerLink="auth/signup" *ngIf="!isAuth">Create an account</a>
+    <a routerLink="auth/signin" *ngIf="!isAuth">Connection</a>
+    <a (click)="onSignOut()"
+           style="cursor:pointer"
+           *ngIf="isAuth">Déconnexion</a>
 </nav>

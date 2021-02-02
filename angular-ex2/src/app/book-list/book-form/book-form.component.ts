@@ -12,6 +12,9 @@ import { BooksService } from 'src/app/services/books.service';
 export class BookFormComponent implements OnInit {
 
   bookForm: FormGroup;
+  fileIsUploading: boolean;
+  fileUrl: string;
+  fileUploaded: boolean;
 
   constructor(private formBuilder: FormBuilder, private booksService: BooksService,
     private router: Router) {
@@ -20,6 +23,10 @@ export class BookFormComponent implements OnInit {
       author: ['', Validators.required],
       synopsis: ''
     });
+
+    this.fileIsUploading = false;
+    this.fileUrl = '';
+    this.fileUploaded = false;
   }
 
   ngOnInit() {
@@ -32,8 +39,26 @@ export class BookFormComponent implements OnInit {
     const synopsis = formValues['synopsis'];
     const newBook = new Book(title, author);
     newBook.synopsis = synopsis;
+    if (this.fileUrl && this.fileUrl !== '') {
+      newBook.photo = this.fileUrl;
+    }
     this.booksService.createNewBook(newBook);
     this.router.navigate(['/books']);
+  }
+
+  detectFiles(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      this.onUploadFile(input.files[0]);
+    }
+  }
+
+  async onUploadFile(file: File): Promise<void> {
+    this.fileIsUploading = true;
+    let url = await this.booksService.uploadFile(file);
+    this.fileUrl = url;
+    this.fileIsUploading = false;
+    this.fileUploaded = true;
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BlogPost } from '../models/BlogPost';
+import { BlogPostServiceService } from '../services/blog-post-service.service';
 
 @Component({
   selector: 'app-post-list-item-component',
@@ -9,8 +10,14 @@ import { BlogPost } from '../models/BlogPost';
 export class PostListItemComponentComponent implements OnInit {
 
   @Input() post?: BlogPost;
+  @Input() indexPost: number;
+
+  constructor(private blogPostsService: BlogPostServiceService) {
+    this.indexPost = -1;
+  }
 
   ngOnInit(): void {
+    
   }
 
   likeIt(): void {
@@ -25,6 +32,10 @@ export class PostListItemComponentComponent implements OnInit {
       this.post.loveIts -= 1;
       console.log(this.post.loveIts);
     }
+  }
+
+  onRemove(): void {
+    this.blogPostsService.removePost(this.indexPost);
   }
 
 }

@@ -42,4 +42,16 @@ export class BlogPostServiceService {
     this.postsSubject.next(this.posts.slice());
   }
 
+  addPost(newPost: BlogPost): void {
+    this.posts.push(newPost);
+    this.emitPosts();
+  }
+
+  removePost(indexPost: number): void {
+    if (indexPost >= 0 && indexPost < this.posts.length) {
+      this.posts.splice(indexPost, 1);
+      this.emitPosts();
+    }
+  }
+
 }

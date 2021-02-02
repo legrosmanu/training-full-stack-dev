@@ -16,9 +16,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-sm-8">
             <button class="btn btn-success" type="button" (click)="likeIt()">Like it!</button>
             <button class="btn btn-danger ml-1" type="button" (click)="dontLikeIt()">Don't like it!</button>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-danger" (click)="onRemove()">Delete it!</button>
         </div>
     </div>
 </li>

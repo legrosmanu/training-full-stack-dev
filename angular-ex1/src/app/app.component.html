@@ -2,7 +2,16 @@
   <div class="row">
     <div class="col-12">
       <h4>Ex 1: simple list of blog posts</h4>
-      <app-post-list-component [posts]="posts"></app-post-list-component>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="onAddPost()">Add a post</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BlogPost } from '../models/BlogPost';
 import { BlogPostServiceService } from '../services/blog-post-service.service';
@@ -13,7 +14,7 @@ export class PostListComponentComponent implements OnInit, OnDestroy {
   posts: Array<BlogPost>;
   postsServiceSubscription?: Subscription;
 
-  constructor(private blogPostService: BlogPostServiceService) {
+  constructor(private blogPostService: BlogPostServiceService, private router: Router) {
     this.posts = [];
   }
 
@@ -26,6 +27,10 @@ export class PostListComponentComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.blogPostService.postsSubject.unsubscribe();
+  }
+
+  onAddPost(): void {
+    this.router.navigate(['posts/new']);
   }
 
 }

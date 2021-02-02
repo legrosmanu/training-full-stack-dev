@@ -9,11 +9,7 @@ import { BlogPost } from './models/BlogPost';
 })
 export class AppComponent {
 
-  constructor(private router: Router) {
-  }
-
-  onAddPost(): void {
-    this.router.navigate(['posts/new']);
+  constructor() {
   }
 
 }
